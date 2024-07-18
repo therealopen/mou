@@ -1,0 +1,3 @@
+route
+Route::get('/dashboard/data', [ChartController::class, 'index'])->name('dashboard.admin-dashboard');
+Route::get('/dashboard/data', [ChartController::class, 'chartData']);
