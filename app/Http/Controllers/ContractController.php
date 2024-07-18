@@ -25,8 +25,8 @@ class ContractController extends Controller
       return view('pages.contract.manage_contracts',compact('consultants','notifications','contracts','notifications'));
     }
 
-    public function saveContract(Request $request){
-        //dd($request->all());
+    public function saveContract(Request $request)
+    {
         // Validate incoming request data
         $validatedData = $request->validate([
             'consultant_id' => 'required',
@@ -35,25 +35,34 @@ class ContractController extends Controller
             'contract_description' => 'required',
             'contract_startDate' => 'required|date',
             'contract_endDate' => 'required|date',
-          
             'contract_value' => 'required|numeric|min:0',
             'employer' => 'required',
             'contract_document' => 'required|file|mimes:pdf|max:2048', // Adjust the file types and size as needed
         ]);
+    
         // Handle file upload
-    if ($request->hasFile('contract_document')) {
-        $path = $request->file('contract_document')->store('contracts', 'public');
-        $validatedData['contract_document'] = $path;
-    }
-
+        if ($request->hasFile('contract_document')) {
+            $file = $request->file('contract_document');
+            
+            // Check if file size is greater than 2048 KB (2 MB)
+            if ($file->getSize() > 2048 * 1024) {
+                return back()->withErrors(['contract_document' => 'The file size is too big. Please upload a file smaller than 2MB.']);
+            }
+    
+            $path = $file->store('contracts', 'public');
+            $validatedData['contract_document'] = $path;
+        
+    
         // Create a new Contract instance with the validated data
         $contract = new Contract($validatedData);
         $contract->approval_status = 'pending_approval';
         $contract->site_delivery = '0';
-      
-
+    
         // Save the contract
         $contract->save();
+    
+        return back()->with('success', 'Your contract has been successfully submitted.');
+    }
         
     // Create a new notification
     $notification = new Notification([

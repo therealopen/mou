@@ -35,28 +35,39 @@ class MouController extends Controller
     }
 
     public function initializeMou(Request $request)
-   {
-    $validatedData = $request->validate([
-        // Validation rules for mou
-        'mou_title' => 'required|string',
-        'mou_description' => 'required|string',
-        'start_date' => 'required|date',
-        'end_date' => 'required|date',
-        'partner_id'=> 'required',
-        'mou_document' => 'required|file|mimes:pdf|max:2048', // Adjust the file types and size as needed
-    ]);
-
-    // Handle file upload
-if ($request->hasFile('mou_document')) {
-    $path = $request->file('mou_document')->store('mous', 'public');
-    $validatedData['mou_document'] = $path;
-}
-
-    // Save data to database
-      // Create a new Contract instance with the validated data
-      $mous = new Mou($validatedData);
-      $mous->approval_mou_status = 'pending_approval';
-      $mous->save();
+    {
+        // Validate incoming request data
+        $validatedData = $request->validate([
+            'mou_title' => 'required|string',
+            'mou_description' => 'required|string',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'partner_id' => 'required',
+            'mou_document' => 'required|file|mimes:pdf|max:2048', // Adjust the file types and size as needed
+        ]);
+    
+        // Handle file upload
+        if ($request->hasFile('mou_document')) {
+            $file = $request->file('mou_document');
+    
+            // Check if file size is greater than 2048 KB (2 MB)
+            if ($file->getSize() > 2048 * 1024) {
+                return back()->withErrors(['mou_document' => 'The file size is too big. Please upload a file smaller than 2MB.']);
+            }
+    
+            // Store the file
+            $path = $file->store('mous', 'public');
+            $validatedData['mou_document'] = $path;
+        }
+    
+        // Save data to database
+        // Create a new Mou instance with the validated data
+        $mous = new Mou($validatedData);
+        $mous->approval_mou_status = 'pending_approval';
+        $mous->save();
+    
+        return back()->with('success', 'Your MoU has been successfully submitted.');
+    
 
          // Create a new Audit Trailer
     $userId = auth()->id();

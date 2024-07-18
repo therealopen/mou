@@ -10,17 +10,18 @@
     <h1> <img class="mx-auto d-block" src="{{ asset('assets/img/logo.png') }}" alt="logo" style="max-height: 150px;"
         href="#" /><span style="color:#fdbf14"></span></h1>
         
-        <center><p class="mx-auto d-block" style="font-size: 12px;"><strong><span>UDOM CONTRACT AGREEMENT MONITORING SYSTEM (UCAMS)</span></strong></p>
+        <center><p class="mx-auto d-block" style="font-size: 12px;"><strong><span style="color:#777">MOU MONITORING SYSTEM <br> (MoUMs)</span></strong></p>
 
 </center>
+<HR style="width:100%; color:#777; weight:300;height:10%"></HR>
         
   
 
-        @if (session('status'))
+        <!-- @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
             </div>
-        @endif
+        @endif -->
 
         <form method="POST" action="{{ route('login') }}">
             @csrf

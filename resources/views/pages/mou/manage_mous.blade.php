@@ -80,13 +80,18 @@
 <p class="alert alert-success">{{ session('success') }}</p>
 @endif
 @if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
+@foreach ($errors->all() as $error)
+                    <div class="alert alert-danger" id="upload-error" style="margin:10px;">    
+                
+                    <span style="color: darkred; weight: 900;">{{ $error }}</span>
+                
+                        </div>
+                        <script>
+                            setTimeout(function() {
+                                document.getElementById('upload-error').style.display = 'none';
+                            }, 10000); // Hide the error message after 5 seconds (5000 milliseconds)
+                        </script>
+                        @endforeach
 @endif
 {{-- <img src="{{ asset('assets/signature/signature.png') }}" alt="Header Logo" class="header-image"> --}}
 
@@ -285,7 +290,8 @@
                                                 </script>
                                             @endif
                                             
-                          
+                                            
+                   
                           
                                             <form class="needs-validation" method="POST" action="{{ route('mous.save') }}" enctype="multipart/form-data">
                                                       @csrf
@@ -379,7 +385,7 @@ function validateMouDescription(textarea) {
                                                               </div>
                                                              
                                                            <div class="form-layout-footer text-center">
-                                                            <button class="btn btn-primary" style="width: 250px;">Save Contract</button>
+                                                            <button class="btn btn-primary" style="width: 250px;">Save Mou</button>
                                                         </div>
                                                         
                                                            

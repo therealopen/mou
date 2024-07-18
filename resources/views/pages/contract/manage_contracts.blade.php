@@ -92,6 +92,18 @@
                             }, 5000); // Hide the error message after 5 seconds (5000 milliseconds)
                         </script>
                     @endif
+                    @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger" id="upload-error" style="margin:10px;">    
+                
+                    <span style="color: darkred; weight: 900;">{{ $error }}</span>
+                
+                        </div>
+                        <script>
+                            setTimeout(function() {
+                                document.getElementById('upload-error').style.display = 'none';
+                            }, 10000); // Hide the error message after 5 seconds (5000 milliseconds)
+                        </script>
+                        @endforeach
                     
                   
 
