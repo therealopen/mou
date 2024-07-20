@@ -220,12 +220,10 @@
                    <div class="form-group">
                        <label for="editRole">Role</label>
                        <select class="form-control" id="editRole" name="role" required>
-                           <option value="dem">dem</option>
-                           <option value="pmu">pmu</option>
-                           <option value="stc">stc</option>
-                           <option value="vc">vc</option>
-                           <option value="pfa">pfa</option>
-                           <option value="staff">staff</option>
+                       @foreach ($roles as $role)
+                       <option value="{{ $role->role_name }}">{{ $role->role_name }}</option>   
+                       @endforeach
+                      
                        </select>
                    </div>
                </div>

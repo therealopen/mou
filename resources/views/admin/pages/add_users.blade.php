@@ -108,13 +108,11 @@
                                                     <select class="custom-select" id="inputGroupSelect01"
                                                         name="role" required>
                                                         <option value="">---select role---</option>
-                                                        <option value="dem">dem</option>
-                                                        <option value="pmu">pmu</option>
-                                                        <option value="stc">stc</option>
-                                                        <option value="vc">vc</option>
-                                                        <option value="pfa">pfa</option>
-                                                        <option value="staff">staff</option>
-
+                                                        @foreach ($roleList as $role)
+                                                        
+                                                        <option value="{{ $role->role_name }}">{{ $role->role_name }}</option>
+                                                        
+                                                        @endforeach
                                                         {{-- <option value="coordinator">MoUCoordinator</option>
                                                         <option value="hod">HOD</option>
                                                         <option value="partner">parner</option>

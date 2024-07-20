@@ -46,14 +46,14 @@
                  
 
                   <li>
-                    @if(in_array(Auth::user()->role, ['stc', 'pmu','vc','dem']))
+                    @if(in_array(Auth::user()->role, ['stc','hod', 'pmu','vc','dem']))
                       <a href=""><i data-feather="mail"></i>
                         
                           <span  style="color: white">Contract</span><i class="accordion-icon fa fa-angle-left"></i></a>
                           @endif
                       <ul class="sub-menu">
 
-                        @if(in_array(Auth::user()->role, ['pmu']))
+                        @if(in_array(Auth::user()->role, ['hod','pmu']))
                          
                           <li><a href="{{ route('manage_contracts') }}"  style="color: white">Manage Contract</a></li>
                         
@@ -64,7 +64,7 @@
                         <li><a href="{{ route('viewconsultants') }}">View Consultant</a></li>
                         @endif
       
-                        @if(in_array(Auth::user()->role, ['stc', 'pmu']))
+                        @if(in_array(Auth::user()->role, ['stc','hod', 'pmu']))
                         {{-- <li><a href="{{ route('viewcontracts') }}">View Contract</a></li> --}}
                         <li><a href="{{ route('contract.documents') }}">Contract Document</a></li>
                        
@@ -78,17 +78,17 @@
                           <li><a href="{{ route('displayaprovedcontracts') }}">view Contract</a></li>
                         @endif
                             {{-- <li><a href="#">Dpi Request</a></li> --}}
-                            @if(Auth::user()->role === 'stc')
+                            @if(Auth::user()->role === 'stc' or 'hod')
                             <li><a href="{{ route('approvecontracts') }}">Resend Contract</a></li>
                             <li><a href="{{ route('approvecontractss') }}">Approve Contract</a></li>
                              @endif 
 
-                        @if(in_array(Auth::user()->role, ['stc', 'pmu']))
+                        @if(in_array(Auth::user()->role, ['stc','hod', 'pmu']))
                           <li><a href="{{ route('displayaprovedcontracts') }}">Approved Contract</a></li>
                         @endif
                           
                       
-                           @if(Auth::user()->role === 'pmu')
+                           @if(Auth::user()->role === 'hod')
                            <li><a href="{{ route('progresscontracts') }}">Contract Progress</a></li>
                       
                          
@@ -98,7 +98,7 @@
                   </li>
                
                  
-                  @if(in_array(Auth::user()->role, ['pmu', 'coordinator']))
+                  @if(in_array(Auth::user()->role, ['pmu','hod', 'coordinator']))
                   <li>
                       <a href=""><i data-feather="feather"></i>
                           <span>Mous</span><i class="accordion-icon fa fa-angle-left"></i></a>
@@ -117,7 +117,7 @@
                   @endif
 
                 
-                  @if(in_array(Auth::user()->role, ['stc', 'pfa','vc','staff']))
+                  @if(in_array(Auth::user()->role, ['stc','pfa','vc','staff']))
                   <li>
                       <a href=""><i data-feather="feather"></i>
                           <span>Mous</span><i class="accordion-icon fa fa-angle-left"></i></a>
@@ -157,7 +157,7 @@
 
 
 
-                  @if(in_array(Auth::user()->role, ['stc', 'pmu']))
+                  @if(in_array(Auth::user()->role, ['stc','hod', 'pmu']))
                   <li>
                       <a href=""><i data-feather="feather"></i>
                           <span>Report</span><i class="accordion-icon fa fa-angle-left"></i></a>

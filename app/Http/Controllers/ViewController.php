@@ -27,7 +27,7 @@ class ViewController extends Controller
         $users = User::all();
 
         // Fetching all roles
-        $roles = Role::all();
+        $roles = Role::whereNotIn('role_name', ['admin'])->get();
         $notifications = Notification::all();
 
         return view('admin.pages.view_users', compact('users', 'roles','notifications'));
@@ -36,14 +36,16 @@ class ViewController extends Controller
     public function ViewRoles()
     {
         $notifications = Notification::all();
-        return view('admin.pages.view_roles',compact('notifications'));
+        return view('admin.pages.view_roles', compact('notifications'));
     }
+   
 
     public function showAddUserPage()
     {
-        $roles = Role::all();
+        $roles = Role::whereNotIn('role_name', ['admin'])->get();
         $users = User::all();
+        $roleList = Role::whereNotIn('role_name', ['admin'])->get();
         $notifications = Notification::all();
-        return view('admin.pages.add_users', compact('roles', 'users','notifications'));
+        return view('admin.pages.add_users', compact('roles','roleList', 'users','notifications'));
     }
 }

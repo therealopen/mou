@@ -161,7 +161,7 @@
             </a> --}}
             
          
-               {{-- @if(in_array(Auth::user()->role, ['stc', 'pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->
+               {{-- @if(in_array(Auth::user()->role, ['stc','hod','pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->
                   <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
@@ -188,7 +188,7 @@
                   </div> --}}
                   
            
-                  {{-- @if(in_array(Auth::user()->role, ['stc', 'pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->            
+                  {{-- @if(in_array(Auth::user()->role, ['stc', 'hod', 'pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->            
                   <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
@@ -229,7 +229,7 @@
 
                 
 
-                  {{-- @if(in_array(Auth::user()->role, ['stc', 'pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->            
+                  {{-- @if(in_array(Auth::user()->role, ['stc','hod', 'pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->            
                    <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
@@ -268,7 +268,7 @@
                   </div> --}}
                   
 
-                  {{-- @if(in_array(Auth::user()->role, ['stc', 'pmu','dpi','vc','staff']))
+                  {{-- @if(in_array(Auth::user()->role, ['stc', 'hod','pmu','dpi','vc','staff']))
                    <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
@@ -352,7 +352,7 @@
 <!-- Count Card Start -->
                <!--================================-->
                <div class="row clearfix">
-                  @if(in_array(Auth::user()->role, ['stc', 'pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->
+                  @if(in_array(Auth::user()->role, ['stc', 'hod','pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->
                   <div class="col-lg-12 col-xl-6">
                      <div class="row row-xs">
                         <div class="col-sm-6">
@@ -553,7 +553,7 @@
                   </div>
                </div>
                @endif
-               @if(in_array(Auth::user()->role, ['pmu','dem','vc'])) <!-- Check if user has permission to view consultants -->
+               @if(in_array(Auth::user()->role, ['pmu','hod','dem','vc'])) <!-- Check if user has permission to view consultants -->
                <div class="col-md-6 col-lg-6 col-xl-3">
                   <a href="{{route('viewconsultants')}}">
                   <div class="card mg-b-30">
