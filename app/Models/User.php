@@ -31,7 +31,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'role',
         'phone_number',
         'status',
+        'department_id',
     ];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

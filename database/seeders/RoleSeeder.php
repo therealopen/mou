@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
 {
     // Create roles
     $roles = [
-        // ['role_name' => 'admin'],
+        ['role_name' => 'admin'],
         ['role_name' => 'hod'],
         ['role_name' => 'director'],
         ['role_name' => 'coordinator'],
@@ -28,7 +28,7 @@ class RoleSeeder extends Seeder
 
         // Assign permissions to each role if necessary
         // Assuming the same permissions for simplicity
-        $role->permissions()->attach([1, 2, 3, 4, 5, 6]);
+        //$role->permissions()->attach([1, 2, 3, 4, 5, 6]);
     }
 }
 }
