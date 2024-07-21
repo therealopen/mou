@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('status_tpc')->default('0');
             // Timestamps
             $table->timestamps();
+            // add more column here
             
         });
     }

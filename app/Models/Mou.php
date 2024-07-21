@@ -18,6 +18,7 @@ class Mou extends Model
         'end_date',
         'approval_mou_status',
         'mou_document',  
+        // add more 
     ];
 
      // Define the relationship with Comment
