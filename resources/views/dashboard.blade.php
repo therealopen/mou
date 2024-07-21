@@ -13,8 +13,8 @@
                      <div class="clearfix">
                         <div class="pd-t-5 pd-b-5">
              
-                           <h1 class="pd-0 mg-0 tx-20 tx-dark">logged in As:<b>{{ Auth::user()->first_name }}
-                              {{ Auth::user()->last_name }}  ({{ Auth::user()->role }})</b></h1>
+                           <h1 class="pd-0 mg-0 tx-20 tx-dark">logged in As:<b style="text-transform:capitalize;">{{ Auth::user()->first_name }}
+                              {{ Auth::user()->last_name }}</b>  ({{ Auth::user()->role }})</h1>
                         </div>
                         <div class="breadcrumb pd-0 mg-0">
                            <a class="breadcrumb-item" href="index.html"><i class="icon ion-ios-home-outline"></i> Home</a>
@@ -76,7 +76,7 @@
                   @endif
                     <!-- Traffic Sources Start -->	
                   <!--================================-->
-                  @if(Auth::user()->role === 'staff')
+                  @if(Auth::user()->role === 'director')
                   <div class="col-xl-12">
                      <div class="card mg-b-30 traffic-source">
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -161,7 +161,7 @@
             </a> --}}
             
          
-               {{-- @if(in_array(Auth::user()->role, ['stc','hod','pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->
+               {{-- @if(in_array(Auth::user()->role, ['stc','director','hod','pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->
                   <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
@@ -202,8 +202,8 @@
                   </div>
                   @endif --}}
 
-                 
-                  {{-- <div class="col-md-6 col-lg-6 col-xl-3">
+                  {{-- @if(in_array(Auth::user()->role, ['stc', 'hod', 'pmu','director','vc']))
+                  <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
                            <h5 class="tx-uppercase tx-spacing-1 tx-semibold tx-10 mg-b-2">Progress Mou</h5>
@@ -213,8 +213,10 @@
                            <div class="d-flex align-items-center tx-gray-500 tx-11"><span class="tx-warning mr-2 d-flex align-items-center"><i class="ti-arrow-down tx-8 mr-1 tx-8"></i>.</span></div>
                         </div>
                      </div>
-                  </div> --}}
-                  {{-- <div class="col-md-6 col-lg-6 col-xl-3">
+                  </div> 
+                  @endif --}}
+                 {{-- @if(in_array(Auth::user()->role, ['stc', 'hod', 'pmu','director','vc']))
+                  <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
                            <h5 class="tx-uppercase tx-spacing-1 tx-semibold tx-10 mg-b-2">Progress Mou Task</h5>
@@ -224,7 +226,8 @@
                            <div class="d-flex align-items-center tx-gray-500 tx-11"><span class="tx-warning mr-2 d-flex align-items-center"><i class="ti-arrow-down tx-8 mr-1 tx-8"></i>.</span></div>
                         </div>
                      </div>
-                  </div> --}}
+                  </div> 
+                  @endif--}}
                
 
                 
@@ -268,7 +271,7 @@
                   </div> --}}
                   
 
-                  {{-- @if(in_array(Auth::user()->role, ['stc', 'hod','pmu','dpi','vc','staff']))
+                  {{-- @if(in_array(Auth::user()->role, ['stc', 'hod','pmu','director','vc','staff']))
                    <div class="col-md-6 col-lg-6 col-xl-3">
                      <div class="card mg-b-30">
                         <div class="card-body">
@@ -352,14 +355,14 @@
 <!-- Count Card Start -->
                <!--================================-->
                <div class="row clearfix">
-                  @if(in_array(Auth::user()->role, ['stc', 'hod','pmu','dpi','vc'])) <!-- Check if user has permission to view consultants -->
+                  @if(in_array(Auth::user()->role, ['stc', 'coordinator','hod','dpi','vc'])) <!-- Check if user has permission to view consultants -->
                   <div class="col-lg-12 col-xl-6">
                      <div class="row row-xs">
                         <div class="col-sm-6">
                            <a href="{{route('manage_contracts')}}">
                            <div class="card mg-b-30">
                               <div class="card-body">
-                                 <div class="media d-inline-flex">
+                                 <div class="media d-inline-flex" >
                                     <div>
                                        <span class="tx-uppercase tx-spacing-1 tx-semibold tx-10 mg-b-2">Contract</span>					  
                                        <h2 class="tx-20 tx-sm-18 tx-md-24 mb-0 mt-2 mt-sm-0 tx-normal tx-rubik tx-dark"><span class="counter">{{$totalContracts}}</span></h2>

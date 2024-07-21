@@ -238,8 +238,8 @@
                                         <img src="assets/images/users-face/1.png" class="img-fluid wd-35 ht-35 rounded-circle" alt="">
                                      </div>
                                      <div class="profile-text">
-                                        <h6>Hussein Mcheni</h6>
-                                        <span>husein.mcheni.@gmail.com</span>
+                                        <h6 style="text-transform:capitalize;">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h6>
+                                        <span>({{ Auth::user()->role }})</span>
                                      </div>
                                   </div>
                                   <a href="" class="dropdown-item"><i data-feather="user" class="wd-16 mr-2"></i> My profile</a>

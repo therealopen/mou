@@ -46,14 +46,14 @@
                  
 
                   <li>
-                    @if(in_array(Auth::user()->role, ['stc','hod', 'pmu','vc','dem']))
+                    @if(in_array(Auth::user()->role, ['stc', 'pmu','hod','dem']))
                       <a href=""><i data-feather="mail"></i>
                         
                           <span  style="color: white">Contract</span><i class="accordion-icon fa fa-angle-left"></i></a>
                           @endif
                       <ul class="sub-menu">
 
-                        @if(in_array(Auth::user()->role, ['hod','pmu']))
+                        @if(in_array(Auth::user()->role, ['coordinator','pmu']))
                          
                           <li><a href="{{ route('manage_contracts') }}"  style="color: white">Manage Contract</a></li>
                         
@@ -64,7 +64,7 @@
                         <li><a href="{{ route('viewconsultants') }}">View Consultant</a></li>
                         @endif
       
-                        @if(in_array(Auth::user()->role, ['stc','hod', 'pmu']))
+                        @if(in_array(Auth::user()->role, ['stc','hod','director', 'pmu']))
                         {{-- <li><a href="{{ route('viewcontracts') }}">View Contract</a></li> --}}
                         <li><a href="{{ route('contract.documents') }}">Contract Document</a></li>
                        
@@ -74,7 +74,7 @@
 
 
                         
-                        @if(in_array(Auth::user()->role, ['vc', 'pfa']))
+                        @if(in_array(Auth::user()->role, ['hod', 'director']))
                           <li><a href="{{ route('displayaprovedcontracts') }}">view Contract</a></li>
                         @endif
                             {{-- <li><a href="#">Dpi Request</a></li> --}}
@@ -83,7 +83,7 @@
                             <li><a href="{{ route('approvecontractss') }}">Approve Contract</a></li>
                              @endif 
 
-                        @if(in_array(Auth::user()->role, ['stc','hod', 'pmu']))
+                        @if(in_array(Auth::user()->role, ['stc','hod', 'pmu','director']))
                           <li><a href="{{ route('displayaprovedcontracts') }}">Approved Contract</a></li>
                         @endif
                           
@@ -98,7 +98,7 @@
                   </li>
                
                  
-                  @if(in_array(Auth::user()->role, ['pmu','hod', 'coordinator']))
+                  @if(in_array(Auth::user()->role, ['pmu', 'coordinator']))
                   <li>
                       <a href=""><i data-feather="feather"></i>
                           <span>Mous</span><i class="accordion-icon fa fa-angle-left"></i></a>
@@ -117,7 +117,7 @@
                   @endif
 
                 
-                  @if(in_array(Auth::user()->role, ['stc','pfa','vc','staff']))
+                  @if(in_array(Auth::user()->role, ['stc','director','hod','staff']))
                   <li>
                       <a href=""><i data-feather="feather"></i>
                           <span>Mous</span><i class="accordion-icon fa fa-angle-left"></i></a>
@@ -157,7 +157,7 @@
 
 
 
-                  @if(in_array(Auth::user()->role, ['stc','hod', 'pmu']))
+                  @if(in_array(Auth::user()->role, ['director','hod', 'coordinator']))
                   <li>
                       <a href=""><i data-feather="feather"></i>
                           <span>Report</span><i class="accordion-icon fa fa-angle-left"></i></a>
@@ -178,13 +178,13 @@
 
                   <li class="">
                       <a href="{{ route('password.change') }}"><i data-feather="user"></i>
-                          <span>Change Password</span><i class=""></i></a>
+                          <span>Profile</span><i class=""></i></a>
 
                   </li>
 
                   {{-- <li class="">
                       <a href="pages-profile.html"><i data-feather="user"></i>
-                          <span>Change Password</span><i class=""></i></a>
+                          <span>Profile</span><i class=""></i></a>
 
                   </li> --}}
 

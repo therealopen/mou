@@ -7,7 +7,7 @@
 {{-- <x-guest-layout> --}}
     <!-- Session Status -->
 
-    <h1> <img class="mx-auto d-block" src="{{ asset('assets/img/logo.png') }}" alt="logo" style="max-height: 150px;"
+    <h1> <img class="mx-auto d-block" src="{{ asset('assets/img/logomou.jpg') }}" alt="logo" style="max-height: 100px;"
         href="#" /><span style="color:#fdbf14"></span></h1>
         
         <center><p class="mx-auto d-block" style="font-size: 12px;"><strong><span style="color:#777">MOU MONITORING SYSTEM <br> (MoUMs)</span></strong></p>
