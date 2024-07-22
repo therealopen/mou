@@ -498,8 +498,25 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="comment" class="col-form-label">Comment:</label>
-                                        <textarea class="form-control" id="comment" name="task_delivery_comment" required></textarea>
-                                    </div>
+                                        <textarea class="form-control" id="comment" name="task_delivery_comment" 
+                  required pattern="[a-zA-Z0-9 ]*"
+                  title="Only numbers, letters, and spaces are allowed."></textarea>
+                  <p id="error-message" style="color: red; display: none;">Please enter only numbers, letters, and spaces.</p>
+
+                  <script>
+        const textarea = document.getElementById('comment');
+        const errorMessage = document.getElementById('error-message');
+
+        textarea.addEventListener('input', function() {
+            const regex = /^[a-zA-Z0-9 ]*$/;
+            if (!regex.test(textarea.value)) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+    </script>
+                                                    </div>
                                 </div>
                             </div>
                             <div class="form-layout-footer text-center">

@@ -285,11 +285,12 @@
                   </div>
                   @endif --}}
 
-                 
+                  @if(in_array(Auth::user()->role, ['stc','staff'])) <!-- Check if user has permission to view consultants -->            
+
                   {{-- <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="card mg-b-30">
                        <div class="card-body">
-                          <h5 class="tx-uppercase tx-spacing-1 tx-semibold tx-10 mg-b-2">Terminated Mou</h5>
+                          <h5 class="tx-uppercase tx-spacing-1 tx-semibold tx-10 mg-b-2">Task progress</h5>
                           <div class="d-flex justify-content-between align-items-center">
                              <h2 class="tx-20 tx-sm-18 tx-md-24 mg-b-0 tx-rubik tx-danger tx-normal">0</h2>
                           </div>
@@ -297,6 +298,7 @@
                        </div>
                     </div>
                  </div> --}}
+                 @endif
                  
 
                 
@@ -556,7 +558,7 @@
                   </div>
                </div>
                @endif
-               @if(in_array(Auth::user()->role, ['pmu','hod','dem','vc'])) <!-- Check if user has permission to view consultants -->
+               @if(in_array(Auth::user()->role, ['pmu','hod','dem','coordinator'])) <!-- Check if user has permission to view consultants -->
                <div class="col-md-6 col-lg-6 col-xl-3">
                   <a href="{{route('viewconsultants')}}">
                   <div class="card mg-b-30">
@@ -577,7 +579,7 @@
                                       
 
           
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
         

@@ -109,9 +109,9 @@
                                     <tr>
                                       
                          
-                             <td>{{ $audit->User->first_name}} {{ $audit->User->last_name}}</td>
-                            <td>{{ $audit->action}}</td>
-                            <td>{{ $audit->description}}</td>
+                             <td>{{ strtoupper($audit->User->first_name)}} {{ strtoupper($audit->User->last_name)}}</td>
+                            <td>{{ strtoupper($audit->action)}}</td>
+                            <td>{{ strtoupper($audit->description)}}</td>
                             <td>{{ $audit->created_at}}</td>
       
                             

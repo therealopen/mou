@@ -114,12 +114,12 @@
                                     <tr>
                                       
                                     
-                                         <td>{{ $task->Task_title}}</td>
-                                         <td>{!! nl2br(e($task->Task_description)) !!}</td>
+                                         <td>{{ strtoupper($task->Task_title)}}</td>
+                                         <td>{!! nl2br(e(strtoupper($task->Task_description))) !!}</td>
                                        
                                          <td> 
                                              @foreach ($task->taskDeliveries as $index => $delivery)
-                                             <div>{{ $index + 1 }}. {{ $delivery->task_delivery_name }}: {{ $delivery->task_delivery_value }}</div>
+                                             <div>{{ $index + 1 }}. {{ strtoupper($delivery->task_delivery_name) }}: {{ $delivery->task_delivery_value }}</div>
                                          @endforeach
              
                                          </td>
@@ -129,7 +129,7 @@
             @if($delivery->deliveryReports)
                 @foreach ($delivery->deliveryReports as $report)
                     <div>
-                        <strong>{{ $delivery->task_delivery_name }}</strong>:   <strong>{{ $report->task_report_delivery_value }}</strong>: {{ $report->task_delivery_comment }}
+                        <strong>{{ strtoupper($delivery->task_delivery_name) }}</strong>:   <strong>{{ $report->task_report_delivery_value }}</strong>: {{ $report->task_delivery_comment }}
                     </div>
                 @endforeach
             @endif
@@ -502,7 +502,7 @@
                                         <textarea class="form-control" id="comment" name="task_delivery_comment"
           placeholder="Task Delivery Comment" required
           oninput="validateTaskDeliveryComment(this)"
-          title="Please enter text and numbers (alphanumeric characters) only."></textarea>
+          title="Please enter text and numbers only."></textarea>
 
 <script>
 function validateTaskDeliveryComment(textarea) {

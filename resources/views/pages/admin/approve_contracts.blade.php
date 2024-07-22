@@ -117,8 +117,8 @@
                                     @foreach ($contracts as $contract)
                                     <tr>
                                         
-                            <td>{{ $contract->contract_name }}</td>            
-                            {{-- <td>{{ $contract->contract_description }}</td> --}}
+                            <td>{{ strtoupper($contract->contract_name) }}</td>            
+                            {{-- <td>{{ strtoupper($contract->contract_description) }}</td> --}}
                         
                             <td>
                               <span style="color: rgb(0, 30, 255); font-weight: bold;">

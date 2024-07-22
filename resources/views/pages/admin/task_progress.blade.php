@@ -116,8 +116,8 @@
                                     @foreach ($contracts as $contract)
                                     <tr>
                                         
-                            <td>{{ $contract->contract_name }}</td>            
-                            {{-- <td>{{ $contract->contract_description }}</td> --}}
+                            <td>{{ strtoupper($contract->contract_name) }}</td>            
+                            {{-- <td>{{ strtoupper($contract->contract_description) }}</td> --}}
                         
                             <td style="color: #0a8fe8; font-weight: bold;"> <span style="color: rgb(0, 30, 255); font-weight: bold;">
                               {{ $contract->approval_status }} ({{ $contract->status_tpc }})

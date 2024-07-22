@@ -124,8 +124,8 @@
                                     @foreach ($contracts as $contract)
                                     <tr>
                                     
-                            <td>{{ $contract->contract_name }}</td>            
-                            <td>{{ $contract->contract_description }}</td>
+                            <td>{{ strtoupper($contract->contract_name) }}</td>            
+                            <td>{{ strtoupper($contract->contract_description) }}</td>
                             <td>
                               <span style="color: rgb(0, 30, 255); font-weight: bold;">
                                {{ $contract->approval_status }} ({{ $contract->status_tpc }})
@@ -167,9 +167,9 @@
                             <td>{{ $contract->contract_startDate}}</td>
                             <td>{{ $contract->contract_endDate}}</td>
                            
-                            <td>{{ $contract->site_delivery}}</td>
+                            <td>{{ strtoupper($contract->site_delivery)}}</td>
                             <td>{{ $contract->contract_value}}</td>
-                            <td>{{ $contract->employer}}</td>
+                            <td>{{ strtoupper($contract->employer)}}</td>
                             <td>
                            
 

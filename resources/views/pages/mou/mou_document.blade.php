@@ -110,7 +110,7 @@
                                     <tr>
                                       
                          
-                            <td>{{ $mou->mou_title}}</td>
+                            <td>{{ strtoupper($mou->mou_title) }}</td>
                            
                                        <td>
                                        

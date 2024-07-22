@@ -119,11 +119,11 @@
                             <tbody>
                                 @foreach ($consultants as $consultant)
                                     <tr>
-                                        <td>{{ $consultant->first_name }}</td>
-                                        <td>{{ $consultant->last_name }}</td>
+                                        <td>{{ strtoupper($consultant->first_name) }}</td>
+                                        <td>{{ strtoupper($consultant->last_name) }}</td>
                                         <td>{{ $consultant->email }}</td>
                                         <td>{{ $consultant->phone_number }}</td>
-                                        <td>{{ $consultant->address }}</td>
+                                        <td>{{ strtoupper($consultant->address) }}</td>
                                         <td>{{ $consultant->licence }}</td>
                                         <td>
                                             <div class="btn-group" role="group">

@@ -134,13 +134,13 @@
                                        {{-- <a href="" class="link-style"> --}}
                                           <a href="#" class="toggle-details" style="color: rgb(6, 23, 253); text-decoration: underline;">
                                         @if ($contract->consultant)
-                                            {{ $contract->consultant->first_name }} {{ $contract->consultant->last_name }}
+                                            {{ strtoupper($contract->consultant->first_name) }} {{ strtoupper($contract->consultant->last_name) }}
                                         @else
                                             No Consultant Assigned
                                         @endif
                                     </a>
                                     </td>
-                                    <td>{{ $contract->contract_name }}</td>
+                                    <td>{{ strtoupper($contract->contract_name) }}</td>
                                     <td>{!! nl2br(e($contract->contract_description)) !!}</td>
                                     <td style="color: rgb(0, 136, 255); font-weight: bold;">
                                        @foreach ($contract->contractDeliveries as $delivery)
@@ -167,7 +167,7 @@
                                     <td>{{ $contract->contract_startDate }}</td>
                                     {{-- <td>{{ $contract->site_delivery }}</td> --}}
                                     <td>{{ $contract->contract_value }}</td>
-                                    <td>{{ $contract->employer }}</td>
+                                    <td>{{ strtoupper($contract->employer) }}</td>
                                   
                                     <td>
                                         @if(in_array(Auth::user()->role, ['pmu']))

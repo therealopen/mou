@@ -117,11 +117,11 @@
                                     @foreach ($tasks as $task)
                                     <tr>
                                       
-                           <td>{{ $task->Mou->mou_title }}</td>         
-                            <td>{{ $task->Task_title}}</td>
-                            <td>{!! nl2br(e($task->Task_description)) !!}</td>
+                           <td>{{ strtoupper($task->Mou->mou_title) }}</td>         
+                            <td>{{ strtoupper($task->Task_title)}}</td>
+                            <td>{!! nl2br(e(strtoupper($task->Task_description))) !!}</td>
                            <td> @foreach ($task->assignedUsers as $user)
-                            {{ $user->first_name }} {{ $user->last_name }}<br>
+                            {{ strtoupper($user->first_name) }} {{ strtoupper($user->last_name) }}<br>
                         @endforeach
                             <td> 
                                 @foreach ($task->taskDeliveries as $index => $delivery)
@@ -142,7 +142,7 @@
                                     Day: {{ $diff->days }}
                                 </span>
                             </td>
-                            <td>{{ $task->task_status_name}}</td>
+                            <td><b>{{ strtolower($task->task_status_name)}}</b></td>
                             {{-- <td>Comment</td> --}}
                             <td>{{ $task->task_start_date}}</td>
       

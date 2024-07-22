@@ -120,10 +120,10 @@
                                @foreach ($users as $user)
                                <tr>
                                   <td>{{ $index++ }}</td>
-                                   <td>{{ $user->first_name }}</td>
-                                   <td>{{ $user->last_name }}</td>
+                                   <td>{{ strtoupper($user->first_name) }}</td>
+                                   <td>{{ strtoupper($user->last_name) }}</td>
                                    <td>{{ $user->email }}</td>
-                                   <td>{{ $user->phone_number }}</td>
+                                   <td>{{ strtoupper($user->phone_number) }}</td>
                                    <td>{{ $user->role }}</td>
                                    <td>
                                        @if ($user->email_verified_at)

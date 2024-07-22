@@ -116,16 +116,16 @@
                                     @foreach ($partners as $partner)
                                     <tr>
                                       
-                            <td>{{ $partner->company_name }}</td>            
-                            <td>{{ $partner->company_address }}</td>
+                            <td>{{ strtoupper($partner->company_name) }}</td>            
+                            <td>{{ strtoupper($partner->company_address) }}</td>
                             
                          
                             <td>{{ $partner->company_contact_number }}</td>
                             <td>{{ $partner->company_email }}</td>
       
-                            <td>{{ $partner->representation_name }}</td>
+                            <td>{{ strtoupper($partner->representation_name) }}</td>
                             
-                            <td>{{ $partner->representative_title }}</td>
+                            <td>{{ strtoupper($partner->representative_title) }}</td>
                             <td>{{ $partner->representative_email }}</td>
                             
                             

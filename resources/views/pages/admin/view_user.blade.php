@@ -112,8 +112,8 @@
                                  <tbody>
                                     @foreach ($users as $user)
                                     <tr>
-                                       <td>{{ $user->first_name }}</td>
-                                       <td>{{ $user->last_name }}</td>
+                                       <td>{{ strtoupper($user->first_name) }}</td>
+                                       <td>{{ strtoupper($user->last_name) }}</td>
                                        <td>{{ $user->email}}</td>
                                        <td>admin</td>
                                        <td>

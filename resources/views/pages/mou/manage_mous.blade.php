@@ -119,16 +119,16 @@
                                     @foreach ($mous as $mou)
                                     <tr>
                                       
-                           <td>{{ $mou->Partner->company_name }}</td>         
-                            <td>{{ $mou->mou_title}}</td>
-                            <td>{!! nl2br(e($mou->mou_description)) !!}</td>
+                           <td>{{ strtoupper($mou->Partner->company_name) }}</td>         
+                            <td>{{ strtoupper($mou->mou_title) }}</td>
+                            <td>{!! nl2br(e(strtoupper($mou->mou_description))) !!}</td>
                             <td> @foreach ($mou->tasks as $index => $task)
-                                <div>{{ $index + 1 }}.{{ $task->Task_title }}</div>
+                                <div>{{ $index + 1 }}.{{ strtoupper($task->Task_title) }}</div>
                             @endforeach</td>
                             <td>
                                 @if ($mou->taskDeliveries)
                         @foreach ($mou->taskDeliveries as $index => $delivery)
-                            <div>{{ $index + 1 }}. {{ $delivery->task_delivery_name }}: {{ $delivery->task_delivery_value }}</div>
+                            <div>{{ $index + 1 }}. {{ strtoupper($delivery->task_delivery_name) }}: {{ strtoupper($delivery->task_delivery_value) }}</div>
                         @endforeach
                     @endif
                             </td>

@@ -108,7 +108,7 @@
                                     @foreach ($contracts as $contract)
                                     <tr>
                                  
-                            <td>{{$contract->contract_name }}</td>  
+                            <td>{{ strtoupper($contract->contract_name) }}</td>  
                           
                             
                            
